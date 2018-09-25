@@ -40,11 +40,11 @@ public class Panier {
     }
     
     public void ajouter(Orange o){
-        listeOrange.add(o);
+        if(!estPlein()) listeOrange.add(o);
     }
     
     public void retire(){
-        listeOrange.remove(listeOrange.size()-1);
+        if(!estVide()) listeOrange.remove(listeOrange.size()-1);
     }
     
     public double getPrix(){
