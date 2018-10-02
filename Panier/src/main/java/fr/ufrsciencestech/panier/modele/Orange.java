@@ -1,4 +1,4 @@
-package fr.ufrsciencestech.panier;
+package fr.ufrsciencestech.panier.modele;
 import java.lang.*;
 import java.util.Scanner;
 
@@ -22,6 +22,11 @@ public class Orange {
     
     public String getOrigine(){
         return origine;
+    }
+    
+    public Orange(){
+        origine = "vide";
+        prix = 1.0;
     }
     
     public Orange (double p, String o) {

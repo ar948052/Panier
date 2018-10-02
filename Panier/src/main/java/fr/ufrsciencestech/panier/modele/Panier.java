@@ -3,18 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fr.ufrsciencestech.panier;
+package fr.ufrsciencestech.panier.modele;
 
 import java.util.ArrayList;
+import java.util.Observable;
 import java.util.Scanner;
 
 /**
  *
  * @author ar948052
  */
-public class Panier {
+public class Panier extends Observable{
     private ArrayList<Orange> listeOrange;
     private int capacitePanier = 5;
+    
+    public int getCapacite(){
+        return listeOrange.size();
+    }
         
     public Panier(int cp){
         listeOrange = new ArrayList();
@@ -40,11 +45,20 @@ public class Panier {
     }
     
     public void ajouter(Orange o){
-        if(!estPlein()) listeOrange.add(o);
+        if(!estPlein()){
+            listeOrange.add(o);
+            this.setChanged();
+            this.notifyObservers();
+        }
+        
     }
     
-    public void retire(){
-        if(!estVide()) listeOrange.remove(listeOrange.size()-1);
+    public void retirer(){
+        if(!estVide()) {
+            listeOrange.remove(listeOrange.size()-1);
+            this.setChanged();
+            this.notifyObservers();
+        }
     }
     
     public double getPrix(){

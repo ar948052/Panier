@@ -1,5 +1,11 @@
 package fr.ufrsciencestech.panier;
 
+import fr.ufrsciencestech.panier.modele.Orange;
+import fr.ufrsciencestech.panier.modele.Panier;
+import fr.ufrsciencestech.panier.vue.Console;
+import fr.ufrsciencestech.panier.vue.FenetreAWT;
+import fr.ufrsciencestech.panier.vue.FenetreSwing;
+
 /**
  * Hello world!
  *
@@ -8,12 +14,12 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        //Tests TP1
+        //System.out.println( "Hello World!" );
         
-        Panier p = new Panier(4);
-        Panier pVide = new Panier(2);
+        //Panier pVide = new Panier(2);
         
-        p.ajouter(new Orange(5, "France"));
+        /*p.ajouter(new Orange(5, "France"));
         p.ajouter(new Orange(0.8, "Allemagne"));
         p.ajouter(new Orange(6.9, "Pologne"));
         p.ajouter(new Orange(5.6, "eee"));
@@ -30,6 +36,23 @@ public class App
         else System.out.println("erreur");
         if(pVide.estVide()) System.out.println("vide");
         
-        System.out.println(p.getPrix());
+        System.out.println(p.getPrix());*/
+        
+        //TP2        
+        Panier p = new Panier(40);
+        Console c = new Console();
+        FenetreSwing fs = new FenetreSwing(p);
+        FenetreAWT fa = new FenetreAWT(p);
+        
+        p.addObserver(c);
+        p.addObserver(fs);
+        p.addObserver(fa);
+        
+        
+        p.ajouter(new Orange(0.8, "Allemagne"));
+        p.ajouter(new Orange(6.9, "Pologne"));
+        p.ajouter(new Orange(5.6, "eee"));
+        
+        p.retirer();
     }
 }
