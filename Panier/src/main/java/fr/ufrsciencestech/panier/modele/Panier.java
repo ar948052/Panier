@@ -30,7 +30,7 @@ public class Panier extends Observable{
     private int capacitePositive(int cp){
         Scanner scn = new Scanner(System.in);
         while(cp<0.0){
-            System.out.println("Le prix doit etre positif");
+            System.out.println("La capacite doit etre positive");
             cp = scn.nextInt();
         }
         return cp;
@@ -45,7 +45,7 @@ public class Panier extends Observable{
     }
     
     public void ajouter(Orange o){
-        if(!estPlein()){
+        if(!estPlein() && o != null){
             listeOrange.add(o);
             this.setChanged();
             this.notifyObservers();

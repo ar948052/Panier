@@ -27,7 +27,7 @@ public class ControllerButton implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         JButton jb = (JButton)e.getSource();
-        switch(jb.getName()){
+        /*switch(jb.getName()){
             case "plus":
                 p.ajouter(new Orange());
                 break;
@@ -37,7 +37,10 @@ public class ControllerButton implements ActionListener{
             default:
                 break;
                 
-        }
+        }*/
+        
+        if(jb.getName().equals("plus")) p.ajouter(new Orange());
+        if(jb.getName().equals("moins")) p.retirer();
     }
     
 }

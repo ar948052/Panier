@@ -1,5 +1,4 @@
 package fr.ufrsciencestech.panier.modele;
-import java.lang.*;
 import java.util.Scanner;
 
 /*
