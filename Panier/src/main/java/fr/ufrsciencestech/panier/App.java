@@ -53,6 +53,7 @@ public class App
         p.ajouter(new Orange(6.9, "Pologne"));
         p.ajouter(new Orange(5.6, "eee"));
         p.ajouter(new Orange(5.6, "eeee"));
+        p.ajouter(new Orange(5.6, "nouveau test"));
         p.retirer();
     }
 }
